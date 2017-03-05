@@ -1,6 +1,6 @@
 <?php
 
-class Router
+class Router extends EsObject
 {
     protected $sUri;
 
@@ -9,6 +9,10 @@ class Router
     protected $sAction;
 
     protected $sParams;
+
+    protected $sMethodPrefix;
+
+    protected $sLang;
 
     protected static $oInstance = null;
 
@@ -25,8 +29,9 @@ class Router
     public function __construct(){
     }
 
-    public function Init($sUri){
-        var_dump('Ok! Router was called with uri' . $sUri);
+    public function Init(){
+        $this->sUri = urlencode(trim($_SERVER['REQUEST_URI'], '/'));
+        var_dump($this->sUri);
     }
 
     public function getUri(){
@@ -43,5 +48,13 @@ class Router
 
     public function getParams(){
         return $this->sParams;
+    }
+
+    public function getMethodPrefix(){
+        return $this->sMethodPrefix;
+    }
+
+    public function getLang(){
+        return $this->sLang;
     }
 }

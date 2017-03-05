@@ -32,9 +32,7 @@ class Engine extends EsObject
         $sControllerPath = ROOT.DS.'controllers'.DS.'Controller'.$sClassName.'.class.php';
         $sModulePath = ROOT.DS.'core'.DS.'module'.DS.'Module'.$sClassName.'.class.php';
 
-        if(file_exists($sEnginePath)){
-            require_once($sEnginePath);
-        } elseif (file_exists($sControllerPath)) {
+        if(file_exists($sControllerPath)){
             require_once($sControllerPath);
         } elseif (file_exists($sModulePath)) {
             require_once($sModulePath);

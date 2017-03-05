@@ -19,8 +19,8 @@ require_once(ROOT.DS.'bootstrap.php');
 
 try {
     $oRouter = Router::getInstance();
-    $oRouter->Init($_SERVER['REQUEST_URI']);
+    $oRouter->Init('sdsdsds');
 } catch (Exception $e) {
     $sProtocol = isset($_SERVER['SERVER_PROTOCOL']) ? $_SERVER['SERVER_PROTOCOL'] : 'HTTP/1.1';
-    header("{$sProtocol} 500 Internal Server Error");
+    header($sProtocol . " 500 Internal Server Error");
 }
